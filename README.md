@@ -1,3 +1,3 @@
 # repo-1
 learning git
-Author-Priyaranjan Rout
+Author-Priyaranjan Rout(NITR)
