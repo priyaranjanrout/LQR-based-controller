@@ -1,0 +1,31 @@
+<sdf version="1.9">
+  <model name="swift_pico_with_ax1">
+    <pose>0 0 0 0 0 0</pose>
+
+    <!-- Include quadcopter -->
+    <include>
+      <uri>model://swift_pico</uri>
+      <name>swift_pico</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <!-- Include pendulum -->
+    <include>
+      <uri>model://bob_final</uri>
+      <name>bob_final</name>
+
+      <pose>0 0 -0.145 0 3.14159265359 0</pose> <!-- Adjust as needed -->
+
+    </include>
+
+    <!-- Fixed joint to attach pendulum -->
+    <joint name="quad_pendulum_joint" type="fixed">
+      <parent>swift_pico::swift_pico/base_link</parent>
+      <child>bob_final::base_link</child>
+
+      <pose>0 0 -0.145 0 3.14159265359 0</pose>
+
+    </joint>
+
+  </model>
+</sdf>

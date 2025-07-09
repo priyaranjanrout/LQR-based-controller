@@ -1,0 +1,7 @@
+<sdf version="1.9">
+  <world name="default">
+    <include>
+      <uri>model://swift_pico_bob_final</uri>
+    </include>
+  </world>
+</sdf>

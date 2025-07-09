@@ -1,0 +1,121 @@
+<sdf version='1.9'>
+  <model name='ax1'>
+    <link name='base_link'>
+      <inertial>
+        <pose>0 0 0.0053279 0 0 0</pose>
+        <mass>0.050777999999999997</mass>
+        <inertia>
+          <ixx>1.0583e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.0367000000000002e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4.9749000000000001e-05</izz>
+        </inertia>
+      </inertial>
+      <!--
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://ax1/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      -->
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://ax1/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.9902 1 1 1</diffuse>
+          <ambient>0.9902 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='j_1' type='revolute'>
+      <pose relative_to='base_link'>0 0 0.016 1.5708 0 -1.5708</pose>
+      <parent>base_link</parent>
+      <child>p_link</child>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>0</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.01</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='p_link'>
+      <pose relative_to='j_1'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.00015748 0.37969 -2.0724e-09 0 0 0</pose>
+        <!--
+        <mass>0.54552999999999996</mass>
+        <inertia>
+          <ixx>0.00081242</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00052798999999999999</iyy>
+          <iyz>0</iyz>
+          <izz>0.00081663999999999999</izz>
+        </inertia>
+        -->
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.000333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000333</iyy>
+          <iyz>0</iyz>
+          <izz>0.000333</izz>
+        </inertia>
+      </inertial>
+      <!--
+      <collision name='p_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://ax1/meshes/p_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      -->
+      <visual name='p_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://ax1/meshes/p_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.9902 1 1 1</diffuse>
+          <ambient>0.9902 1 1 1</ambient>
+        </material>
+      </visual>  
+       
+    </link>
+    
+      <plugin
+        filename="ignition-gazebo-odometry-publisher-system"
+        name="ignition::gazebo::systems::OdometryPublisher">
+        <dimensions>3</dimensions>
+        <frame>p_link</frame> 
+        <topic>/odom/p_link</topic>
+      </plugin> 
+    
+  </model>
+</sdf>
