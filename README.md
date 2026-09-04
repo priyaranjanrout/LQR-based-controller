@@ -1,3 +1,2 @@
-# repo-1
-learning git
+# Summer internship Eyantra
 Author-Priyaranjan Rout(NITR)
