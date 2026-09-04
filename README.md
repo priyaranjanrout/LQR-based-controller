@@ -20,4 +20,4 @@ Oscillations: Reduce Q values or increase R values to penalize aggressive contro
 Poor trajectory tracking: Check linearization accuracy and model fidelity
 Unstable response: Ensure correct sign conventions in mixer matrix and input mapping
 
-Author-Priyaranjan Rout(NITR)
+
