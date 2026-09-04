@@ -1,4 +1,4 @@
-# Summer internship Eyantra Project 13
+# Eyantra Summer internship 2025 Project 13 
 
 Overview
 A comprehensive implementation of Linear Quadratic Regulator (LQR) controller for quadcopter control with suspended payload
